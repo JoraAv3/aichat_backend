@@ -97,16 +97,16 @@ async def get_me(session: AsyncSession = Depends(database.get_async_session), us
         time_passed = time_passed.seconds
 
     reffers_checked = user.account.reffers_checked
-    rewards = task.get_rewards()
+    rewards_list = task.get_rewards()
 
     rewards_response = []
 
-    for day, reward in rewards.items():
-        if day <= reffers_checked:
-            claimed = True
-        else:
-            claimed = False
-        rewards_response.append({'reward': reward, 'claimed': claimed, 'day': day})
+    for count, reward in rewards_list.items():
+        claimed = False
+        if reffers_checked:
+            if count <= reffers_checked:
+                claimed = True
+        rewards_response.append({'reward': reward, 'claimed': claimed, 'count': count})
 
 
 
