@@ -54,6 +54,7 @@ class Account(Base):
     inviteCode: Mapped[str] = mapped_column(Text, nullable=False, unique=True)
     level: Mapped[int] = mapped_column(Integer, nullable=False, default=0)
     heSeeWelcomeScreen: Mapped[bool] = mapped_column(Boolean, nullable=False, default=False)
+    reffers_checked: Mapped[int] = mapped_column(Integer, nullable=False, default=0)
 
     user: Mapped['User'] = relationship('User', back_populates='account')
     reffers: Mapped[list['RefferAccount']] = relationship('RefferAccount', back_populates='OneWhoInvited')

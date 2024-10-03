@@ -130,6 +130,8 @@ def calculate_age(telegram_id: int) -> int:
             creation_date = datetime(2020, 4, 1)
         elif id_str.startswith('10'):
             creation_date = datetime(2019, 11, 1)
+        else:
+            creation_date = datetime(2022, 1, 1)
     elif num_digits == 9:
         if id_str.startswith('9'):
             creation_date = datetime(2019, 7, 1)
@@ -149,7 +151,7 @@ def calculate_age(telegram_id: int) -> int:
             creation_date = datetime(2016, 2, 1)
         elif id_str.startswith('1'):
             creation_date = datetime(2015, 1, 1)
-    elif num_digits == 8 or num_digits <= 8:
+    elif num_digits <= 8:
         creation_date = datetime(2014, 12, 1)
 
     # Calculate the account age in years

@@ -9,7 +9,7 @@ from sqlalchemy.orm import selectinload
 from models import Task, Account
 from db import database
 from schemas import TaskCheck
-from utils import validate_dependency, user as user_crud
+from utils import validate_dependency, user as user_crud, task
 from cache import cache_manager
 
 
@@ -82,7 +82,15 @@ async def check_referral(
     account = result.scalars().first()
 
     if account:
-        if len(account.reffers) >= count:
-            return {"referral_valid": True}
+        if account.reffers_checked < count:
+            if len(account.reffers) >= count:
+                reward = task.get_reward_for_reffers(count)
+                if reward:
+                    await user_crud.update_wallet(session, user.get('id'), reward)
+                    account.reffers_checked = count
+                    await session.commit()
+                    return {"referral_valid": True}
         
     return {"referral_valid": False}
+
+
