@@ -122,28 +122,32 @@ def calculate_age(telegram_id: int) -> int:
 
     # Return the estimated creation date
     if num_digits >= 10:
-        if id_str.startswith('17') or id_str.startswith('16'):
+        if id_str.startswith('17') or id_str.startswith('16') or id_str.startswith('15'):
             creation_date = datetime(2021, 1, 1)
-        elif id_str.startswith('15') or id_str.startswith('14'):
+        elif id_str.startswith('14') or id_str.startswith('13') or id_str.startswith('12'):
             creation_date = datetime(2020, 10, 1)
-        elif id_str.startswith('13'):
-            creation_date = datetime(2020, 4, 1)
-        elif id_str.startswith('12'):
-            creation_date = datetime(2019, 11, 1)
         elif id_str.startswith('11'):
-            creation_date = datetime(2019, 7, 1)
+            creation_date = datetime(2020, 4, 1)
+        elif id_str.startswith('10'):
+            creation_date = datetime(2019, 11, 1)
     elif num_digits == 9:
-        if id_str.startswith('19'):
+        if id_str.startswith('9'):
+            creation_date = datetime(2019, 7, 1)
+        elif id_str.startswith('8'):
             creation_date = datetime(2019, 4, 1)
-        elif id_str.startswith('18'):
+        elif id_str.startswith('7'):
             creation_date = datetime(2018, 11, 1)
-        elif id_str.startswith('17'):
+        elif id_str.startswith('6'):
             creation_date = datetime(2018, 7, 1)
-        elif id_str.startswith('16'):
+        elif id_str.startswith('5'):
             creation_date = datetime(2018, 2, 1)
-        elif id_str.startswith('15'):
+        elif id_str.startswith('4'):
+            creation_date = datetime(2017, 7, 1)
+        elif id_str.startswith('3'):
             creation_date = datetime(2016, 12, 1)
-        elif id_str.startswith('14'):
+        elif id_str.startswith('2'):
+            creation_date = datetime(2016, 2, 1)
+        elif id_str.startswith('1'):
             creation_date = datetime(2015, 1, 1)
     elif num_digits == 8 or num_digits <= 8:
         creation_date = datetime(2014, 12, 1)
