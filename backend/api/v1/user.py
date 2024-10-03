@@ -4,7 +4,7 @@ from fastapi import APIRouter, Depends
 
 from sqlalchemy.ext.asyncio import AsyncSession
 
-from utils import user as user_crud, validate_dependency, check_streak, already_claimed_today
+from utils import user as user_crud, validate_dependency, check_streak, already_claimed_today, task
 from schemas import UserCreate, UserCreateBody, GetOrCreate, SaveWallet
 from db import database
 from models import User, Reward, Wallet
@@ -79,8 +79,8 @@ async def get_me(session: AsyncSession = Depends(database.get_async_session), us
     
     rewards = 0
     completedTasks = user.account.completedTasks
-    for task in completedTasks:
-        rewards += task.amount
+    for completed_task in completedTasks:
+        rewards += completed_task.amount
 
     farm = user.wallet.farm
     time_passed = None
@@ -96,6 +96,19 @@ async def get_me(session: AsyncSession = Depends(database.get_async_session), us
         current_farm_reward = plus_every_second * time_passed.seconds
         time_passed = time_passed.seconds
 
+    reffers_checked = user.account.reffers_checked
+    rewards = task.get_rewards()
+
+    rewards_response = []
+
+    for day, reward in rewards.items():
+        if day <= reffers_checked:
+            claimed = True
+        else:
+            claimed = False
+        rewards_response.append({'reward': reward, 'claimed': claimed, 'day': day})
+
+
 
     return {
         'id': user.id,
@@ -110,7 +123,8 @@ async def get_me(session: AsyncSession = Depends(database.get_async_session), us
         'current_farm_reward': current_farm_reward,
         'plus_every_second': plus_every_second,
         'total_duration': total_duration,
-        'total_farm_reward': settings.farm_reward
+        'total_farm_reward': settings.farm_reward,
+        'reffer_rewards': rewards_response
     }
 
 
