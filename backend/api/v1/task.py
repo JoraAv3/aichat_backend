@@ -82,7 +82,28 @@ async def check_referral(
     account = result.scalars().first()
 
     if account:
-        if len(account.reffers) >= count:
-            return {"referral_valid": True}
+        if account.reffers_checked < count:
+            if len(account.reffers) >= count:
+                reward = get_reward_for_reffers(count)
+                if reward:
+                    await user_crud.update_wallet(session, user.get('id'), reward)
+                    account.reffers_checked = count
+                    await session.commit()
+                    return {"referral_valid": True}
         
     return {"referral_valid": False}
+
+
+def get_reward_for_reffers(count: int):
+    rewards = {
+        2: 1500,
+        3: 2000,
+        5: 3000,
+        7: 3500,
+        10: 5000,
+        15: 7500,
+        20: 10000
+    }
+
+    reward = rewards.get(count)
+    return reward
