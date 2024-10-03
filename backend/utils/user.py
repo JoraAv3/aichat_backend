@@ -93,10 +93,14 @@ async def create_user(user: UserCreate, inviteCode: str, isPremium: bool, sessio
 
     new_invite_code = base64.b64encode(str(user.id).encode('ascii')).decode('ascii')
     new_account = Account(id=user.id, inviteCode=new_invite_code)
-    new_wallet = Wallet(id=user.id)
-    new_reward = Reward(id=user.id, day=1, coinsCount=50)
     session.add(new_account)
+    await session.commit()
+
+    new_wallet = Wallet(id=user.id)
     session.add(new_wallet)
+    await session.commit()
+    
+    new_reward = Reward(id=user.id, day=1, coinsCount=50)
     session.add(new_reward)
     await session.commit()
 
