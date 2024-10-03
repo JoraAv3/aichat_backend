@@ -62,6 +62,7 @@ async def claim_farm(
         if datetime.now() - farm.created_at >= time_passed_condition:
             farm.status = 'Done'
             session.add(farm)
-            wallet = await user_crud.update_wallet(session, user_id, settings.farm_reward)
+            reward = await session.get(Reward, user.get('id'))
+            wallet = await user_crud.update_wallet(session, user_id, reward.day ** 0.01 * settings.farm_seconds)
             await session.commit()
             return {'coins': wallet.coins}
