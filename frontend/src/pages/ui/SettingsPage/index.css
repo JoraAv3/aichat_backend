@@ -1,0 +1,112 @@
+/* SettingsPage.css */
+
+.settings-container {
+  padding: 0 20px;
+}
+
+.settings-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.settings-logo {
+  width: 40px;
+  height: 40px;
+}
+
+.settings-username {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.settings-icons img {
+  margin-left: 10px;
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+}
+
+.settings-section {
+  margin-top: 20px;
+}
+
+.section-title {
+  font-size: 16px;
+  font-weight: bold;
+  color: #666;
+  margin-bottom: 10px;
+}
+
+.settings-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 60px;
+  padding: 15px;
+  background-color: #fff;
+  border-radius: 10px;
+  margin-bottom: 10px;
+  cursor: pointer;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.settings-label {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.settings-value {
+  font-size: 16px;
+  color: #666;
+}
+
+.toggle-container {
+  position: relative;
+  width: 50px;
+  height: 24px;
+  background-color: #ccc;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.toggle-input {
+  display: none;
+}
+
+.toggle-slider {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background-color: white;
+  border-radius: 50%;
+  top: 2px;
+  left: 2px;
+  transition: 0.3s;
+}
+
+.toggle-slider.active {
+  left: 28px;
+  background-color: #0197ec;
+}
+
+.toggle-container.active {
+  background-color: #0197ec;
+}
+
+.dark-mode button,
+.dark-mode .task-btn,
+.dark-mode .join-btn,
+.dark-mode .farming-btn,
+.dark-mode .boost-btn {
+  background-color: #0197ec;
+  color: white;
+}
+
+.dark-mode .settings-item,
+.dark-mode .mission-slide {
+  background-color: #1a1d26;
+  color: white;
+}

@@ -1,0 +1,279 @@
+.airdrop-container {
+  padding: 0 20px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 0;
+  border-radius: 10px;
+}
+
+.header img {
+  width: 28.57px;
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.rocket-img {
+  width: 10px !important;
+}
+
+.user-tokens {
+  width: auto;
+  height: 16px;
+}
+
+.tocken-name {
+  font-size: 10px;
+  font-weight: 400;
+  line-height: 16.45px;
+}
+
+.collected-tokens-amount {
+  font-size: 13px;
+}
+
+.token-info {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-around;
+  background: #ffffff;
+  border: 2px solid #fff;
+  border-radius: 10px;
+  padding: 0 3px;
+}
+
+.header-right-icons {
+  display: flex;
+}
+
+.header-right-icons .block {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-left: 10px;
+}
+
+.header-right-icons .block div {
+  display: flex;
+  background-color: #fff;
+  border: 1px solid white;
+  border-radius: 20px;
+  padding: 2px;
+}
+
+.user-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-right: 8px;
+}
+
+.username {
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.user-stats {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+}
+
+.user-stats-stars {
+  display: flex;
+  align-items: inherit;
+  justify-content: center;
+}
+
+.user-stats-stars img {
+  width: 21px;
+}
+
+.username {
+  display: flex;
+}
+
+.user-stats-commision {
+  display: flex;
+  flex-direction: row;
+}
+
+.user-stats-commision img {
+  padding-left: 5px;
+}
+
+.user-stats-invites {
+  display: flex;
+  flex-direction: row;
+}
+
+.user-stats-invites img {
+  padding-left: 5px;
+}
+
+.stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.telegram-channel {
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  padding: 16px;
+  border-radius: 10px;
+  margin-top: 16px;
+  text-align: center;
+}
+
+.join-btn {
+  background-color: #007bff;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  margin-top: 10px;
+}
+
+.farming {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: white;
+  padding: 16px;
+  border-radius: 10px;
+  margin-top: 16px;
+}
+
+.farming-btn,
+.boost-btn {
+  background-color: #007bff;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  margin-left: 8px;
+}
+
+.tasks-section {
+  background-color: white;
+  padding: 16px;
+  border-radius: 10px 10px 0 0;
+  margin-top: 16px;
+  border-bottom: 0.5px solid #696f8c;
+}
+
+.view-more-section {
+  background-color: white;
+  display: flex;
+  border-radius: 0 0 10px 10px;
+}
+
+.task-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.task-icon {
+  width: 40px;
+  height: 40px;
+}
+
+.task-info {
+  flex-grow: 1;
+  padding: 0 10px;
+}
+
+.task-action {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  height: 45px;
+  justify-content: space-around;
+}
+
+.task-action span {
+  font-family: Kanit;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 19.2px;
+  text-align: left;
+  color: #696f8c;
+}
+
+.view-more-btn {
+  background-color: #fff;
+  color: #242426;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  display: block;
+  margin: 10px auto;
+}
+
+.view-more-block {
+  display: flex;
+  margin: 0 auto;
+  align-items: center;
+  justify-content: center;
+}
+
+.task-list {
+  background-color: black;
+  padding: 10px;
+  border: 1px solid black;
+  width: 40px;
+  height: 40px;
+  opacity: 0px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.task-list img {
+  width: 19.29px;
+  height: 16.77px;
+  top: 13px;
+  left: 10px;
+  gap: 0px;
+  opacity: 0px;
+  object-fit: cover;
+}
+
+.task-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.task-info div {
+  width: max-content;
+  height: 19px;
+  font-family: Kanit;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 19.2px;
+  text-align: left;
+  color: #111827;
+}
+
+.task-info span {
+  font-family: Kanit;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 16.8px;
+  text-align: left;
+  color: #696f8c;
+}

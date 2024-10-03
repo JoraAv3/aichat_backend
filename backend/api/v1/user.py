@@ -73,9 +73,9 @@ async def get_or_create(
 
 
 @router.get('/me')
-async def get_me(session: AsyncSession = Depends(database.get_async_session), user = Depends(validate_dependency)):
-    user = await user_crud.get_user(user.get('id'), session)
-    reward = await session.get(Reward, user.get('id'))
+async def get_me(session: AsyncSession = Depends(database.get_async_session), user_data = Depends(validate_dependency)):
+    user = await user_crud.get_user(user_data.get('id'), session)
+    reward = await session.get(Reward, user_data.get('id'))
     
     rewards = 0
     completedTasks = user.account.completedTasks

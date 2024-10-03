@@ -1,0 +1,187 @@
+:root {
+    color-scheme: light dark;
+    --img-filter-light: invert(0%);
+    --img-filter-dark: invert(100%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(100%) contrast(100%);
+}
+
+body {
+    color: light-dark(#333b3c, #f8f9fc);
+    background-color: light-dark(#efedea, #0f1015);
+}
+
+.button {
+    background-color: light-dark(#0197ec, #0197ec);
+    color: light-dark(#ffffff, #ffffff);
+}
+
+.page-container {
+    color: light-dark(#333b3c, #fff);
+    background-color: light-dark(#efedea, #0f1015);
+}
+
+.content {
+    color: light-dark(#333b3c, #fff);
+    background-color: light-dark(#efedea, #0f1015);
+}
+
+.invite-bonus-section {
+    color: light-dark(#333b3c, #fff);
+    background-color: light-dark(#efedea, #0f1015);
+}
+
+.invite-friends-container {
+    color: light-dark(#333b3c, #fff);
+    background-color: light-dark(#efedea, #0f1015);
+}
+
+.wall-of-fame {
+    color: light-dark(#333b3c, #fff);
+    background-color: light-dark(#efedea, #0f1015);
+}
+
+.header {
+    background-color: light-dark(transparent, #0f1015);
+    color: light-dark(#0f1015, #fff);
+}
+
+.token-info {
+    background-color: light-dark(#ffffff, #1a1d26);
+    color: light-dark(#0f1015, #fff);
+}
+
+.mission-slide {
+    background-color: light-dark(#ffffff, #1a1d26);
+    color: light-dark(#0f1015, #fff);
+}
+
+.friend-item {
+    background-color: light-dark(#ffffff, #1a1d26);
+    color: light-dark(#0f1015, #fff);
+}
+
+.invite-bonus-item {
+    background-color: light-dark(#ffffff, #1a1d26);
+    color: light-dark(#0f1015, #fff);
+}
+
+.farming-info {
+    background-color: light-dark(#fff, #1a1d26);
+    color: light-dark(#0f1015, #fff);
+}
+
+.boost-button {
+    background-color: light-dark(#fff, #1a1d26);
+    color: light-dark(#0f1015, #fff);
+}
+
+.tasks-section {
+    background-color: light-dark(#fff, #1a1d26);
+    color: light-dark(#0f1015, #fff);
+}
+
+.view-more-section {
+    background-color: light-dark(#fff, #1a1d26);
+    color: light-dark(#0f1015, #fff);
+}
+
+.highlighted-rank {
+    background-color: light-dark(#fff, #1a1d26);
+    color: light-dark(#0f1015, #fff);
+}
+
+.top-rank-item {
+    background-color: light-dark(#fff, #1a1d26);
+    color: light-dark(#0f1015, #fff);
+}
+
+.wallet-icon div {
+    background-color: light-dark(#1a1d26, #fff);
+}
+
+.view-more-btn {
+    background-color: light-dark(#fff, #1a1d26);
+    color: light-dark(#0f1015, #fff);
+}
+
+.footer {
+    background-color: light-dark(#fff, #0f1015);
+    color: light-dark(#0f1015, #fff);
+}
+
+.view-more-block svg {
+    color: light-dark(#0f1015, #fff);
+}
+
+.task-item .task-info .task-action {
+    color: light-dark(#0f1015, #fff);
+}
+
+.task-info div {
+    color: light-dark(#0f1015, #fff);
+}
+
+.task-action span {
+    color: light-dark(#0f1015, #fff);
+}
+
+.mission-description {
+    color: light-dark(#0f1015, #fff);
+}
+
+.task-btn {
+    background-color: light-dark(black, #0197ec);
+    color: light-dark(#ffffff, #ffffff);
+}
+
+.farm-rate {
+    background-color: light-dark(black, #0197ec);
+    color: light-dark(#ffffff, #ffffff);
+}
+
+.username {
+    /* background-color: light-dark(black, #0197ec); */
+    color: light-dark(black, #ffffff);
+}
+
+.invite-bonus-link {
+    text-decoration: inherit;
+}
+
+img {
+    filter: invert(0%);
+}
+
+@media (prefers-color-scheme: dark) {
+    img {
+        filter: invert(100%);
+    }
+    .top-rank-item img {
+        filter: none !important;
+    }
+    .task-list img {
+        filter: none !important;
+    }
+    .header-right-icons .block div {
+        background-color: #1a1d26;
+    }
+    .farming-progress {
+        padding: 5px;
+        background: #32363c;
+    }
+    .task-list {
+        background: #32363c;
+    }
+    .footer {
+        border-top: 1px solid #32363c;
+    }
+    .tasks-section {
+        border-bottom: 1px solid #32363c;
+    }
+    .settings-item {
+        background: #32363c;
+        color: #fff;
+    }
+    .settings-item span {
+        color: #fff;
+    }
+}

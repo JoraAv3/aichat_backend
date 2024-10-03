@@ -1,0 +1,47 @@
+/* MissionSlider.css */
+
+.mySwiper {
+  width: 100%;
+  padding-bottom: 30px;
+  padding-top: 10px;
+}
+
+.swiper {
+  margin-left: 0 !important;
+}
+
+.mission-slide {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.mission-name {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.mission-description {
+  margin: 10px 0;
+  font-size: 14px;
+  color: #666;
+}
+
+.swiper-slide {
+  width: 90%;
+  height: auto;
+}
+
+.swiper-pagination-bullet-active {
+  background-color: #111827;
+}
+
+.swiper-mission-btn {
+  display: flex;
+  width: 100%;
+  justify-content: flex-end;
+}
