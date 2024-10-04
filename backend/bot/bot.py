@@ -19,11 +19,14 @@ from db import database
 from models import User
 
 
+
 bot = Bot(settings.telegram_token)
 dp = Dispatcher()
 
 ADMIN_IDS = (1795945549, 215648)
 
+
+photo = FSInputFile('bot/media/start.jpg')
 
 
 class NotifyState(StatesGroup):
@@ -55,7 +58,6 @@ async def start(message: Message):
             'As an ambitious galactic explorer, you find yourself on the verge of riches and wealth, where collecting crystals and coins will line your pockets with the most expensive space dust... 🌌'
             )
     
-    photo = FSInputFile('bot/images/start.jpg')
     await bot.send_photo(message.chat.id, photo=photo, caption=text, reply_markup=inline_builder(settings.webapp_url, message.chat.id))
 
 
@@ -63,6 +65,7 @@ async def start(message: Message):
 @dp.message(Command('notify'))
 async def notify(message: Message, state: FSMContext):
     user_id = message.from_user.id
+
     if user_id in ADMIN_IDS:
         await state.set_state(NotifyState.waiting_for_message)
         await message.answer('Send message')
@@ -82,7 +85,7 @@ async def waiting_for_message(message: Message, state: FSMContext, session: Asyn
     await bot.send_message(message.from_user.id, 'Starting')
 
     for user in users:
-        tasks.append(send_message_to_user(user.id, message.text))
+        tasks.append(send_message_to_user(user.id, message.text, photo))
 
         if len(tasks) == 25:
             await asyncio.gather(*tasks)
@@ -98,9 +101,9 @@ async def waiting_for_message(message: Message, state: FSMContext, session: Asyn
     await message.answer(f'Notification sent to {len(users)} users.')
 
 
-async def send_message_to_user(user_id, text):
+async def send_message_to_user(user_id, text, photo: FSInputFile):
     try:
-        await bot.send_message(user_id, text)
+        await bot.send_photo(user_id, photo=photo, caption=text)
     except TelegramBadRequest as e:
         print(f'Error sending message to {user_id}: {e}')
 
