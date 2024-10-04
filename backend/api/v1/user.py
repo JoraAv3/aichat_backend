@@ -57,7 +57,7 @@ async def get_or_create(
     coins = user_crud.calculate_new_account_reward(age, isPremium)
     title, percent = user_crud.calculate_account_age_name(age)
 
-    await user_crud.update_wallet(session, new_user.id, coins+new_reward.coinsCount)
+    await user_crud.update_wallet(session, new_user.id, coins)
 
     return {
         'id': new_user.id,

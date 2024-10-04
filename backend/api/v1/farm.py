@@ -22,7 +22,6 @@ async def start_farm(
     session: AsyncSession = Depends(database.get_async_session),
     user: dict = Depends(validate_dependency),
 ):
-    background_tasks.add_task(tasks.send_farm_claim_notification, user.get('id'))
 
     stmt = select(Farm).filter(Farm.wallet == user.get('id')).filter(Farm.status == 'Process')
     result = await session.execute(stmt)
@@ -30,6 +29,7 @@ async def start_farm(
     farm = result.scalars().first()
     
     if not farm:
+        background_tasks.add_task(tasks.send_farm_claim_notification, user.get('id'))
         farm = Farm(status='Process', wallet=user.get('id'), created_at=datetime.now())
         session.add(farm) 
         await session.commit()
@@ -42,7 +42,6 @@ async def start_farm(
     return {
         'plus_every_second': plus_every_second,
         'total_duration': total_duration,
-        'total_farm_reward': settings.farm_reward
     }
 
 
